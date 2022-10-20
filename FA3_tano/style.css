@@ -1,0 +1,38 @@
+body{
+    margin: auto;
+    background-image:url("star.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+h1{
+    margin: auto;
+    text-align: center;
+    background-color:#6f66aa;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 2px dotted blue;
+    padding: 10px 15px 10px 15px;
+    width: 250px;
+    margin-bottom: 20px;
+} 
+p{
+    margin: auto;
+    text-align:justify;
+    background-color: hsl(60, 56%, 91%);
+    font-style: italic;
+    padding: 20px;
+    border: 3px black; 
+    border-top-style: dotted;
+    border-left-style:dashed;
+    border-bottom-style:groove;
+    border-right-style:double;
+    width: 500px;
+}
+span{
+    color:rgb(47, 79, 79)  ;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-right: 5px;
+}
