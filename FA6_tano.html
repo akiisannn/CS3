@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tano, Sa-Ce Mia</title>
+    <meta name="Sa-Ce">
+    <style>
+        a{
+            margin: 0;
+            padding:0;
+            overflow: hidden;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            font-family: arial;
+            font-size: 30px;
+            color: white;
+        }
+        div{
+            border: 1px solid black;
+            font-size: 30px;
+            padding-bottom: 120px;
+            padding-right: 30px ;
+            padding-top: 9px ;
+            margin-bottom: 30px;
+            overflow: hidden;
+            font-family: arial;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        a.one:link {
+            background-color: darkslategrey;
+        }
+        a.one:visited {
+            background-color:darkseagreen;
+            color: white;
+        }
+        a.two:link{
+            background-color:lightseagreen;
+        }
+        a.two:visited{
+            color: black;
+            background-color: orangered
+        }
+        a.one:hover, a.one:active{
+            color: black;
+            background-color: orangered;
+        }
+        a.two:hover, a.two:active{
+            color: black;
+            background-color: orangered;
+        }  
+        #div1:target{
+            border: 1px solid black;
+            font-size: 30px;
+            padding-bottom: 120px;
+            padding-right: 30px ;
+            padding-top: 9px ;
+            margin-bottom: 30px;
+            overflow: hidden;
+            font-family: arial;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            color: gold;
+            background-color: darkslategrey;
+        }
+        #div2:target{
+            border: 10px dotted green;
+            font-size: 30px;
+            padding-bottom: 120px;
+            padding-right: 30px ;
+            padding-top: 9px ;
+            margin-bottom: 30px;
+            overflow: hidden;
+            font-family: arial;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            color:goldenrod;
+            background-color:lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <a class="one" href="#div1">
+                First Link
+    </a>
+    <a class="two" href="#div2">
+                Second Link
+    </a><br><br><br>
+
+    <div id="div1">
+        Div 1 here
+    </div><br>
+    <div id="div2">
+        Div 2 here
+    </div>
+</body>
+</html>
