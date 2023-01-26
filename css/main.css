@@ -1,0 +1,222 @@
+h1{
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    float: left;
+    line-height: 1.4cm;
+    margin: auto;
+    margin-top: 1px;
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    left: 0;
+    top: 0;
+    display: flex;
+    float: left;
+    color:black;
+    white-space: nowrap;
+    padding: 0;
+    border: 0;
+    font-size: 50px;
+    vertical-align: baseline;
+}
+
+::selection{
+    background-color: lightgray;
+}
+
+ul.selector {
+    display: inline-block;
+    height: 2.75em;
+    line-height: 2.7em;
+    padding: 0;
+    text-decoration: none;
+    font-weight: 600;
+    overflow: hidden;
+    margin:auto;
+    margin-left: 5cm;
+    }
+
+    ul.selector li {
+        position: relative;
+        display: block;
+        float: left;
+        overflow: hidden;
+        padding: 0 1em 0 1em;
+        cursor: pointer;
+        -moz-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        border-style: solid;
+        border-color: #dee0e3;
+        height: 2.75em;
+        border-top-width: 1px;
+        border-bottom-width: 1px; }
+        ul.selector li:first-child {
+          border-radius: 4px 0 0 4px;
+          border-left-width: 1px; }
+        ul.selector li:last-child {
+          border-radius: 0 4px 4px 0;
+          border-right-width: 1px; }
+        ul.selector li:hover {
+          background: #f2f4f7; }
+        ul.selector li.active {
+          background: #676d79;
+          color: #fff;
+          border-color: #676d79; }
+
+ol, ul {
+    list-style: none;
+    }
+
+nav{
+    background-color: #8BA888;
+    overflow:hidden;
+    float:left;
+    padding: 0cm 2cm 0cm 8cm ;
+    position: sticky;
+    transition: top 0.25s ease-in-out;
+    transition: 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition-delay: 0.75s; 
+    width: 100%; 
+}
+
+nav a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    color: #f2f2f2;
+    display: inline-block;
+    line-height: 1.5cm;
+    margin-right: 6cm;
+  }
+
+.topnav a::before, .topnav a::after{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFF;
+    content: "";
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.topnav a::before
+{
+    top: 0px;
+    transform: translateY(10px);
+}
+
+.topnav a::after
+{
+    bottom: 0px;
+    transform: translateY(-10px);
+}
+.topnav a:hover:before, .topnav a:hover:after
+{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.topnav a:hover {
+    color: silver;
+  }
+  
+.topnav a.active {
+    color: white;
+  }
+
+section{
+    position: sticky;
+    margin: 6cm 4cm 0cm 5cm; 
+    width: 100%;
+    display: flex;
+  }
+
+.blog1 {
+    background: url('images/sprite.png') no-repeat -26px -15px;
+    width: 302px;
+    height: 227px;
+    transform: scale(200%);
+    border: 1px solid #ccc;
+    }
+
+.blog1:hover {
+    background: url('images/sprite.png') no-repeat -26px -250px;
+	width: 301px;
+	height: 226px;
+    transform: scale(220%);
+    border: 1px solid #777;
+    }
+
+.blog2 {
+    background: url('images/sprite.png') no-repeat -369px -15px;
+    width: 302px;
+    height: 227px;
+    transform: scale(200%);
+    border: 1px solid #ccc;
+    margin-left: 10cm;
+    }
+
+.blog2:hover {
+    background: url('images/sprite.png') no-repeat no-repeat -369px -250px;
+	width: 302px;
+	height: 226px;
+    transform: scale(220%);
+    border: 1px solid #777;
+    margin-left: 10cm;
+    
+    }
+
+footer{
+    background-color: black;
+    position: fixed;
+    list-style-type:none;
+    font-size:15px;
+    line-height:10px;
+    color:#737373;
+    display:inline-block;
+    width: 100%;
+    height: 10%;
+    left: 0;
+    bottom:0;
+    text-align:center
+}
+
+.fb, .twt{
+    -webkit-transition:all .2s linear;
+    -o-transition:all .2s linear;
+    transition:all .2s linear;
+    transform: scale(40%); 
+    left: 0;
+    bottom:0;
+    list-style: none;
+    display: inline-block;
+    position: fixed;
+    margin-left: 50%;
+
+
+}
+
+.fb{
+    background: url('images/sprites.png') no-repeat 0 0;
+	width: 100px;
+	height: 100px;
+}
+
+.twt{
+    background: url('images/sprites.png') no-repeat -105px 0;
+	width: 100px;
+	height: 100px;
+}
+
+.fb:hover{
+    background: url('images/sprites.png') no-repeat 0 -110px;
+	width: 100px;
+	height: 100px;
+}
+
+.twt:hover{
+    background: url('images/sprites.png') no-repeat -105px -110px;
+	width: 100px;
+	height: 100px;
+}
