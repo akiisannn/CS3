@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			h1 {
+				text-align:center;
+			}
+			
+			#coin {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				border-radius:50px;
+				margin:auto;
+			}
+			
+			#player {
+				background-color: red;
+				width:50%;
+				float:left;
+				text-align:center;
+				color: white;
+			}
+			
+			#computer {
+				background-color: blue;
+				width:50%;
+				float:left;
+				text-align:center;
+				color: white;
+			}
+			
+			#scoring {
+				margin-top: 50px;
+			}
+			
+			#scoring p {
+				font-size: 100px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			
+			#button {
+				text-align: center;
+				margin-top: 20px;
+			}
+			
+			#random {
+				padding-top:35px;
+				text-align: center;
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> FLIP-A-COIN </h1>
+		<div id="coin"><p id="random"></p> </div>
+		<div id="button">
+			<button onclick="flip()">FLIP A COIN</button>
+		</div>
+		<div id="scoring">
+			<div id="player">
+				<h2 id="playerName"></h2>
+				<p id="playerScore">0</p>
+			</div>
+			<div id="computer">
+				<h2>COMPUTER</h2>
+				<p id="computerScore">0</p>
+			</div>
+		</div>
+		
+		
+		<script>
+		   var pScore = 0;
+			var compScore = 0;
+			var player1 = prompt("Enter name of player:", "");
+			document.getElementById("playerName").innerHTML = player1.toUpperCase();
+			
+			function flip() {
+				var random = ((Math.random() * 100).toFixed(0))%2;
+				var choice = confirm("HEAD or TAIL: Click 'OK' for HEAD or 'Cancel' for TAIL");
+				if(random == 0){
+					document.getElementById("random").innerHTML = "HEAD";
+					if(choice){
+						pScore++;
+						document.getElementById("playerScore").innerHTML = pScore;
+					} else {
+						compScore++;
+						document.getElementById("computerScore").innerHTML = compScore;
+					}
+				} else {
+					document.getElementById("random").innerHTML = "TAIL";
+					if(choice){
+						compScore++;
+						document.getElementById("computerScore").innerHTML = compScore;
+					} else {
+						pScore++;
+						document.getElementById("playerScore").innerHTML = pScore;
+					}
+				}
+				if((pScore == 5) || (compScore == 5)){
+					if(pScore == 5){
+						alert(player1 + " wins the game.");
+					} else {
+						alert("Computer wins the game.");
+					}
+					
+					pScore = 0;
+					compScore = 0;
+					document.getElementById("computerScore").innerHTML = compScore;
+					document.getElementById("playerScore").innerHTML = pScore;
+				}
+			}
+		</script>
+	</body>
+</html>
