@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <meta name="author" content="Sa-Ce Mia B. Tano">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+
+        <style>
+            * {
+                text-align: center;
+            }
+
+            img{
+                padding:left;
+                width: 30cm;
+                height: 20cm;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <img id="image" src="images/comlab1.jpg">
+        <button onclick="imageOne()"> Revert Image </button>
+        <button onclick="imageTwo()"> Replace Image </button>
+
+        <script>
+            function imageOne() {
+                document.getElementById("image").src = "images/comlab1.jpg";
+            }
+    
+            function imageTwo() {
+                document.getElementById("image").src = "images/comlab2.jpg"
+            }
+        </script>
+    </body>
+
+    
+</html>
