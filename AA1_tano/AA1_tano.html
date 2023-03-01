@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Sa-Ce Mia B. Tano">
+
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			h1 {
+				text-align: center;
+				font-size: 70px;
+				background-image: linear-gradient(to bottom right, rgba(255,0,0,0), rgba(255,0,0,1));
+				color: white;
+				margin:0px;
+			}
+			
+			#selectList {
+				margin: 10px 0px 80px 0px;
+			}
+			
+			ul {
+				list-style-type: none;
+				padding: 0px;
+			}
+			
+			ul li {
+				text-align:center;
+				font-size: 30px;
+				padding: 10px;
+				border: 1px solid black;
+				background-color: blue;
+				color: white;
+				float: left;
+			}
+			
+			p {
+				text-align: center;
+				font-size: 30px;
+			}
+			
+			#player {
+				float: left;
+				width: 50%;
+				border: 1px solid black;
+				clear: both;
+			}
+			
+			#computer {
+				float: left;
+				width: 50%;
+				border: 1px solid black;
+			}
+			
+			img {
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1> ROCK, PAPER, SCISSORS </h1>
+		<hr>
+		<!-- This is where the player selects his/her choice for the game. -->
+		<div id="selectList" src="images">
+			<ul>
+				<li onclick="rock()">ROCK</li>
+				<li onclick="paper()">PAPER</li>
+				<li onclick="scissor()">SCISSOR</li>
+			<ul>
+		</ul></ul></div>
+		
+		<!--Scoreboard and display image of rock, paper and scissor once the game starts -->
+		<div>
+			<!--This is the player's scoreboard and display. -->
+			<div id="player">
+				<p id="playerName"> Player </p>
+				<p id="pScore"> 0 </p>
+				<img id="playerChoice" src="images">
+			</div>
+			<!--This is the computer's scoreboard and display. -->
+			<div id="computer"> 
+				<p> Computer </p>
+				<p id="cScore"> 0 </p>
+				<img id="computerChoice" src="images">
+			</div>
+		</div>
+		
+		<script>
+			var random;
+			var pscore = 0;
+			var cscore = 0;	
+            var player = prompt("Input your full name: ", "");
+            document.getElementById("playerName").innerHTML = player;
+
+			function randomComputer() {
+				random = Math.floor(Math.random() * 3);
+				return random;
+				document.getElementById(computerChoice).innerHTML= random + ".png";
+			}
+
+            function rock() {
+				function checkWinner(){ 
+                	document.getElementById("playerChoice").src = "images/0.png";
+					var random = randomComputer();
+					if(random==1) {
+						document.getElementById("computerChoice").src ="images/0.png";
+					}
+					if(random==2) {
+						document.getElementById("computerChoice").src ="images/1.png";
+						cscore = cscore + 1;
+						document.getElementById("cScore").innerHTML = cscore;
+					}
+					if(random==3) {
+						document.getElementById("computerChoice").src ="images/2.png";
+						pscore = pscore + 1;
+						document.getElementById("pScore").innerHTML = pscore;
+					}
+				}
+				
+				checkWinner();
+			
+            }
+			
+		
+            function paper() {
+                function checkWinner(){ 
+					document.getElementById("playerChoice").src = "images/1.png";
+					var random = randomComputer();
+					if(random==1) {
+						document.getElementById("computerChoice").src ="images/0.png";
+						pscore = pscore + 1;
+						document.getElementById("pScore").innerHTML = pscore;					
+					}
+					if(random==2) {
+						document.getElementById("computerChoice").src ="images/1.png";
+
+					}
+					if(random==3) {
+						document.getElementById("computerChoice").src ="images/2.png";
+						cscore = cscore + 1;
+						document.getElementById("cScore").innerHTML = cscore;
+					}
+				} 
+				
+				checkWinner();
+			
+			}
+            
+			//when scissor is clicked, an image of a scissor is shown//
+            function scissor() {
+				function checkWinner() {
+					document.getElementById("playerChoice").src = "images/2.png";
+					var random = randomComputer();
+					if(random==1) {
+						document.getElementById("computerChoice").src ="images/0.png";
+						cscore = cscore + 1;
+						document.getElementById("cScore").innerHTML = cscore;					
+					}
+					if(random==2) {
+						document.getElementById("computerChoice").src ="images/1.png";
+						pscore = pscore + 1;
+						document.getElementById("pScore").innerHTML = pscore;
+					}
+					if(random==3) {
+						document.getElementById("computerChoice").src ="images/2.png";
+
+					}
+			}
+				checkWinner();
+		}
+
+				
+
+		</script>
+	
+</body>
+</html>
