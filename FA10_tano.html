@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FA10_Tano</title>
+</head>
+<body>
+  <h1>Formative Assesment 10</h1>
+  <button onclick="generateNumber()">Generate Number</button>
+  <p id="randomNumber"></p>
+  <p id="numberBreakdown"></p>
+
+  <script>
+    function generateNumber() {
+      // Generate a random number from [0, 1000)
+      let randomNumber = Math.floor(Math.random() * 1000);
+
+      // Print the generated number
+      document.getElementById("randomNumber").textContent = `Randomly generated number: ${randomNumber}`;
+
+      // Extract the ones, tens, and hundreds digits
+      let ones = randomNumber % 10;
+      let tens = Math.floor((randomNumber % 100) / 10);
+      let hundreds = Math.floor(randomNumber / 100);
+
+      // Print the breakdown of the number
+      document.getElementById("numberBreakdown").textContent = `Breakdown: ${hundreds}00, ${tens}0, ${ones}`;
+    }
+  </script>
+</body>
+</html>
