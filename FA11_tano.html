@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> FA-11 </title>
+        <meta name="Sa-Ce">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+<body>
+    <script>
+	var check = true;
+	while(check){
+        let a = Number(prompt("Enter side A:"));
+        let b = Number(prompt('Enter side B:'));
+        let c = Number(prompt('Enter side C:'));
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)){
+        alert('One Side is not a number');
+    } else {
+        triangle(a, b, c);
+		check = false;
+    }
+
+	}
+        function triangle(a, b, c){
+            if (a === b && b === c){
+                alert("The triangle is Equilateral");
+            } else if ( a === b || a === c || b === c){
+                alert("The triangle is Isosceles");
+            } else {
+                alert("The triangle is Scalene");
+            }
+        
+        }
+        
+    </script>
+</body>
+</html>
