@@ -28,12 +28,13 @@
         <button onclick="verifyOTP()">Enter the OTP as shown above</button>
 
         <script>
-            var otp = ''; //stores the string of every random number generated to form the otp.
+           
 
             //declares and stores array of digits.
             //for loop activates until the argument is met.
             function generateOTP(){
                 var num = '1234567890'; 
+                var otp = ''; //stores the string of every random number generated to form the otp.
                 for (i = 0; i < 6; i++) { 
                     otp += num[Math.floor(Math.random() * 10)]; //generates random number and rounds it to the nearest integer.   
                     document.getElementById("otp").innerHTML = otp; //outputs the otp in the id "otp".
