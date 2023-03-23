@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Choose Background Color</title>
+        <meta name="Sa-Ce">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * { box-sizing: border-box; 
+                font-family: arial; 
+                color: white;
+            }           
+            body {background:navy}
+            ul {
+                list-style-type: none;
+                width: 100px;
+                padding: 0;
+                border: 1px solid black;
+                background: gray;
+            }
+            li {width: 100%;
+                border-bottom: 1px solid black;
+                padding: 5px;
+            }
+            li:nth-child(3) {border:none}
+            a {    text-decoration:none;
+                display:block;
+                width: 100%;
+            }
+            li:nth-child(1):hover {background:purple}
+            li:nth-child(2):hover {background:navy}
+            li:nth-child(3):hover {background:maroon}
+            
+        </style>
+
+    </head>
+    <body>
+        <h2> Choose Background Color </h2>
+        <ul>
+            <li><a href="#" input type="button" onclick="purple()">Purple</a></li>
+            <li><a href="#" input type="button" onclick="navy()">Navy</a></li>
+            <li><a href="#" input type="button" onclick="maroon()">Maroon</a></li>
+        </ul>
+        <script>
+            
+            /*A corresponding button is clicked and when the function calls, it changes the background
+            of the html document*/
+            
+            function purple(){
+                document.body.style.backgroundColor = "purple"; //when purple button is clicked, this changes the background to purple.
+            }
+            function navy(){
+                document.body.style.backgroundColor = "navy"; //when navy button is clicked, this changes the background to navy.
+            }
+            function maroon(){
+                document.body.style.backgroundColor = "maroon"; //when maroon button is clicked, this changes the background to maroon.
+            }
+        
+        </script>
+    </body>
+</html>
+
