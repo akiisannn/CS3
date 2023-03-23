@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Choose your Pokemon</title>
+		<meta name="author" content="Sa-Ce Mia B. Tano">
+        <meta name="viewport" content="width=devicewidth, initial-scale=1.0">
+        
+        <style>
+        	* { box-sizing: border-box; font-family: arial; color: white;}
+            div {background: navy;
+            	width: 30%; 
+                text-align:center;
+           		width:250px; 
+                height: 250px; 
+           		margin: 0 auto; 
+                border: 1px solid black;
+                padding-left:1px; 
+                background: navy;
+             }
+            img {width: 65px; 
+            	height:74px; 
+                border: 1px solid black; 
+                float:left; 
+                margin: 1px
+            }
+			img:first-of-type {	/*pertaining to pikachu*/
+            	width: 100px; 
+                height: 150px; 
+                border: 1px solid black; 
+                background: lavender; 
+                padding-left: 10px; 
+                margin-right:10px
+            }
+			img:hover{cursor:pointer;
+            	background: lavender; 
+            }
+        </style>
+
+	</head>
+	<body>
+        <div>
+		<h2> Choose your Pokemon </h2>
+		<img id="avatar" src="https://img.pokemondb.net/sprites/ultra-sun-ultra-moon/normal/pikachu-f.png" 
+					title="Pikachu" onclick="cPix(this)" />
+		<img src="https://img.pokemondb.net/sprites/black-white/shiny/ninetales.png" 
+					title="Ninetales" onclick="cPix(this)" />
+		<img src="https://img.pokemondb.net/sprites/black-white/normal/dragonite.png" 
+					title="Dragonite" onclick="cPix(this)" />
+		<img src="https://img.pokemondb.net/sprites/x-y/normal/ivysaur.png" 
+					title="Ivysaur" onclick="cPix(this)" />
+		<img src="https://img.pokemondb.net/sprites/x-y/shiny/wigglytuff.png" 
+					title="Wigglytuff" onclick="cPix(this)" />
+	</div>
+
+        <script>
+        //Function calls when elements in "img" is clicked.
+        function cPix(img) {
+            var avatar = document.getElementById("avatar"); //recieves image from avatar and stores in the variable avatar.
+            avatar.src = img.src;//sets the image source of avatar to the source of the img clicked.
+            avatar.title = img.title;//sets the title source of avatar to the title of the img clicked.
+           }
+        </script>
+	</body>
+</html>
+
