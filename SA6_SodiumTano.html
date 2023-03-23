@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>One Time Password </title>
+        <meta name="Sa-Ce">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+                background: lightblue; 
+                text-align: center;
+                font-family: arial;
+                color: navy;
+            }
+            button {
+                padding: 10px; 
+                background:violet 
+            }
+            a {
+                font-size: 0.5em; 
+                color: maroon
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Final Verification Step </h1>
+        <h2> Current OTP: <span id="otp"> _ _ _ _ _ _</span> <a onclick="generateOTP()"> New OTP </a></h2>
+        <button onclick="verifyOTP()">Enter the OTP as shown above</button>
+
+        <script>
+           
+
+            //declares and stores array of digits.
+            //for loop activates until the argument is met.
+            function generateOTP(){
+                var num = '1234567890'; 
+                var otp = ''; //stores the string of every random number generated to form the otp.
+                for (i = 0; i < 6; i++) { 
+                    otp += num[Math.floor(Math.random() * 10)]; //generates random number and rounds it to the nearest integer.   
+                    document.getElementById("otp").innerHTML = otp; //outputs the otp in the id "otp".
+                }
+
+            }
+
+            //prompts the user to enter the otp generated.
+            //checks if the otp entered by the user is the same to the randomly generated one. 
+            function verifyOTP(){ 
+                var userOTP = prompt("Enter the OTP shown below to verify"); 
+                if(userOTP === otp.toString()){ 
+                    alert("OTP Matched");//alerts a message when expression is true
+                    window.open("https://open.spotify.com/track/3afkJSKX0EAMsJXTZnDXXJ?si=92ac132515104431");//opens a link when expressions is true.
+                } else { //if expression is not true, else statement activates.
+                    alert("OTP not Matched");//alerts a message when expression is not true.
+                    generateOTP();
+                }
+            }
+
+            window.onload = generateOTP();
+        </script>
+    </body>
+</html
