@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title>  </title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8"> 
+		<meta name="keywords" content="HTML, CSS, JavaScript"> 
+		<link rel="icon" href="icon.png" type="image/gif"> 
+	</head>
+	
+	<style>
+		#htmlCode {
+			text-align: center;
+		}
+		
+		span{
+			display: inline-block;
+			padding: 10px;
+			width: 55px;
+			border: 1px double black;
+		}
+		
+		p {
+			display: inline-block;
+		}
+		
+		#outputDiv {
+			position: absolute;
+			top: 150px;
+			right: 550px;
+			margin: 5px;
+			padding: 2px;
+			border: 1px solid black;
+			display: block;
+		}
+	</style>
+	
+	<body>
+		<div id="htmlCode">
+			<!-- Input Boxes -->
+			<form>
+				<label for="name"> Please enter a number between 2 and 10 </label> <br/>
+				<input type="number" id="rowNum" placeholder="# of Rows" min="2" max="10"> <p> by </p>
+				<input type="number" id="columnNum" placeholder="# of Column" min="2" max="10">
+			</form>
+	
+			<!-- Button -->
+			<br/>
+			<button onclick="generateTable()"> Submit</button> 
+
+			<div id="outputDiv">
+				<br/> <br/>
+			</div>
+		</div>
+		
+		<script>
+			function generateTable(){
+				var startValue = parseInt(document.getElementById("rowNum").value);
+				var endValue = parseInt(document.getElementById("columnNum").value);
+				
+				if(startValue < 2 || startValue > 10 || endValue < 2 || endValue > 10){
+					alert("Input error. Please enter a number between 2 and 10");
+					return;
+				} 
+				
+				var rowCtr = 1;
+				var output = "";
+				
+				while(rowCtr <= startValue){
+					var columnCtr = 1;
+					while(columnCtr <= endValue){
+						output += "<span>" + columnCtr*rowCtr + "</span>"; 
+						columnCtr++;
+					}
+					output += "<br/>";
+					rowCtr++;
+				}
+				document.getElementById("outputDiv").innerHTML = output;
+				document.getElementById("outputDiv").innerHTML = inline-block;
+			}
+
+				
+			
+		</script>
+	</body>
+</html>
