@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript"> 
+    <meta name="author" content="Sa-Ce Mia B. Tano">
+  </head>
+  <body>
+    <script>
+
+      let mRNA = prompt("Enter mRNA sequence: ");
+      
+      let codons = [];
+      let aminoAcids = [];
+      let start = mRNA.indexOf("AUG");
+      
+      if (start === -1) {
+        document.write("Start codon not found: Please run the code again.");
+      } else {
+        let readingFrame = mRNA.slice(start);
+        let i = 0;
+        
+        while (i < readingFrame.length - 2) {
+          codons.push(readingFrame.slice(i, i + 3));
+          i += 3;
+        }
+        
+        for (let i = 0; i < codons.length; i++) {
+          let codon = codons[i];
+          let aminoAcid = "";
+          
+          switch (codon) {
+            case "UUU":
+            case "UUC":
+              aminoAcid = "Phe";
+              break;
+            case "UUA":
+            case "UUG":
+            case "CUU":
+            case "CUC":
+            case "CUA":
+            case "CUG":
+              aminoAcid = "Leu";
+              break;
+            case "AUU":
+            case "AUC":
+            case "AUA":
+              aminoAcid = "Ile";
+              break;
+            case "AUG":
+              aminoAcid = "Met";
+              break;
+            case "GUU":
+            case "GUC":
+            case "GUA":
+            case "GUG":
+              aminoAcid = "Val";
+              break;
+            case "UCU":
+            case "UCC":
+            case "UCA":
+            case "UCG":
+            case "AGU":
+            case "AGC":
+              aminoAcid = "Ser";
+              break;
+            case "CCU":
+            case "CCC":
+            case "CCA":
+            case "CCG":
+              aminoAcid = "Pro";
+              break;
+            case "ACU":
+            case "ACC":
+            case "ACA":
+            case "ACG":
+              aminoAcid = "Thr";
+              break;
+            case "GCU":
+            case "GCC":
+            case "GCA":
+            case "GCG":
+              aminoAcid = "Ala";
+              break;
+            case "UAU":
+            case "UAC":
+              aminoAcid = "Tyr";
+              break;
+            case "UGU":
+            case "UGC":
+              aminoAcid = "Cys";
+              break;
+            case "UGG":
+              aminoAcid = "Trp";
+              break;
+            case "UAA":
+            case "UAG":
+            case "UGA":
+              aminoAcid = "STOP";
+              break;
+            default:
+              aminoAcid = "Unknown";
+              break;
+          }
+          
+          aminoAcids.push(aminoAcid);
+        }
+        
+        document.write('[' + codons.map(codon => `"${codon}"`).join(', ') + ']<br>');
+        document.write(aminoAcids.map((aminoAcid, index) => `${codons[index]} --> ${aminoAcid}`).join('<br>'));
+      }
+    </script>
+  </body>
+</html>
