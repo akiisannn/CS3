@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta name="Tano, Baldeo, Solano">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8"> 
+		<meta name="keywords" content="HTML, CSS, JavaScript"> 
+		<link rel="icon" href="icon.png" type="image/gif"> 
+
+    <style>
+        
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #FBE7C5;
+        margin: 0;
+        padding: 0;
+      }
+    h1 {
+        font-size: 30px;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    fieldset {
+        width: 50%;
+        display: block;
+        border: 2px solid black;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color:#F7EDE2 ;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    legend {
+        border: 1.90px solid black;
+        border-radius: 10px;
+        background-color: #F5CAC3;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #3B3B3B;
+    }
+    label {
+        font-size: 16px;
+        color: #333;
+    }
+    h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+    input[type="radio"] {
+    margin-right: 10px;
+    }
+    button {
+        
+        font-size: 16px;
+        padding: 10px;
+        background-color: #84A59D;
+        color: white;
+        border: 1px solid mediumgreen;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #C0CFB2;
+    }
+    
+    input[type="submit"] {
+        font-size: 16px;
+        padding: 10px;
+        background-color: #84A59D;
+        color: white;
+        border: 1px solid mediumgreen;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #C0CFB2;
+    }
+
+    p.result {
+        position: relative;
+        font-size: 20px;
+        margin-top: 10px;
+        color: #333;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding-top: 10px;
+    }
+    #header {
+        text-align: center;
+    }
+    #quizUi {
+        position: relative;
+        display: block;
+    }
+    
+    #scoreBoard {
+        text-align: center;
+        border-radius: 20px;
+        padding: 10px;
+        display: inline-block;
+        border: 2px solid black;
+        background-color: #F7EDE2;
+        width: 10em;
+        margin: 40px;
+    }
+    
+    #score {
+        text-align: center;
+    }
+    
+    #scoreHeader {
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: #F5CAC3;
+        display: inline-block;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-weight: 40px;
+    }
+
+    #buttonContainer {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type="text"],
+        select {
+            width: 50%;
+            padding: 10px;
+            margin-top: 3px ;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            border-radius: 10px;
+            }
+
+    select {
+        font-size: 15px;
+        height: 40px;
+        }
+
+    #nce{
+        text-align: center;
+        transform: translateY(170px);
+        font-size: 40px;
+        font-family: Tahoma;
+        margin-top: 0px;
+        text-shadow: 2px solid black;
+    }
+    </style> 
+
+    </head>
+
+    <body>
+    
+    <p id="nce"> Reviewer for the PSHS-System<br>National Competitive Examination(NCE)</p>
+    <form id="myForm" onsubmit="submitForm(event); submitFormAns()">
+    
+    <div id="quizUi">
+    <div id="scoreBoard">
+        <h2 id="scoreHeader"> Score </h2>
+        <h4 id="score"> 0/20 </h4>
+    </div>
+
+    <!-- Question 1 -->
+    <div class="container">
+        <fieldset id="field1">
+          <legend id="legend1"> Question #1 </legend>
+          <label> 
+            <h2> Find the next the next 3 terms in the sequence: 4, 6.5, 9, __, __, __.</h2> <br/>
+            <input type="radio" name="qs1" value="a" required>
+            <label for="a">a) 11.5,14,16.5</label><br>
+  
+            <input type="radio" name="qs1" value="b">
+            <label for="b">b) 11.5, 15, 17.5</label><br>
+  
+            <input type="radio" name="qs1" value="c">
+            <label for="c">c) 11, 2.5, 7</label><br>
+  
+            <input type="radio" name="qs1" value="d">
+            <label for="d">d) 11.5, 14.5, 17.5</label><br><br>
+            <p id="qs1-result"></p>
+          </label>
+        </fieldset>
+      </div>
+    
+    <div class="container">
+    <!-- Question 2 -->
+    <fieldset id="field2">
+        <legend id="legend2"> Question #2 </legend>
+        <label> <h2> A teacher gave a TRUE or FALSE quiz with 5 items in total. How many combinations of answers do you think are possible?</h2> <br/>
+        <input type="radio" name="qs2" value="a" required>
+        <label for="a">a) 10</label><br>
+
+        <input type="radio" name="qs2" value="b">
+        <label for="b">b) 25</label><br>
+
+        <input type="radio" name="qs2" value="c">
+        <label for="c">c) 32</label><br>
+        
+        <input type="radio" name="qs2" value="d">
+        <label for="d">d) 50</label><br><br>
+        <p id="qs2-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 3 -->
+    <fieldset id="field3">
+        <legend  id="legend3"> Question #3 </legend>
+        <label> <h2> Solve the equation: 3x + 5 = 17</h2> <br/>
+        <input type="radio" name="qs3" value="a" required>
+        <label>a) 4</label><br>
+
+        <input type="radio" name="qs3" value="b">
+        <label>b) 6</label><br>
+
+        <input type="radio" name="qs3" value="c">
+        <label>c) 2</label><br>
+        
+        <input type="radio" name="qs3" value="d">
+        <label for="d">d) 12</label><br><br>
+        <p id="qs3-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    
+    <div class="container">
+    <!-- Question 4 -->
+    <fieldset  id="field4">
+        <legend  id="legend4"> Question #4 </legend>
+        <label> <h2> A recipe requires 3/4 cup of sugar to make 18 cookies. How much sugar is needed to make 72 cookies?</h2> <br/>
+        <input type="radio" name="qs4" value="a" required>
+        <label> a) 3</label><br>
+
+        <input type="radio" name="qs4" value="b">
+        <label> b) 4</label><br>
+
+        <input type="radio" name="qs4" value="c">
+        <label> c) 3/4</label><br>
+        
+        <input type="radio" name="qs4" value="d">
+        <label for="d">d) 1</label><br><br>
+        <p id="qs4-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    
+    <div class="container">
+    <!-- Question 5 -->
+    <fieldset  id="field5">
+        <legend  id="legend5"> Question #5 </legend>
+        <label> <h2> Simplify the expression: 8(6x + 4) - 9(x - 2)</h2> <br/>
+        <input type="radio" name="qs5" value="a" required>
+        <label> a) 64x+32-9x+18</label><br>
+
+        <input type="radio" name="qs5" value="b">
+        <label> b) 48x+32-9x+18</label><br>
+
+        <input type="radio" name="qs5" value="c">
+        <label> c) 39x+50</label><br>
+        
+        <input type="radio" name="qs5" value="d">
+        <label for="d">d) 39x-14</label><br><br>
+        <p id="qs5-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 6 -->
+    <fieldset  id="field6">
+        <legend  id="legend6"> Question #6 </legend>
+        <label> <h2> Find the area of a triangle with a base of 11 cm and a height of 9 cm.</h2> <br/>
+        <input type="radio" name="qs6" value="a" required>
+        <label> a) 49.5 cm^2</label><br>
+
+        <input type="radio" name="qs6" value="b">
+        <label> b) 49 cm^2</label><br>
+
+        <input type="radio" name="qs6" value="c">
+        <label> c) 49.5 cm</label><br>
+        
+        <input type="radio" name="qs6" value="d">
+        <label for="c">d) 50 cm^2 cm</label><br><br>
+        <p id="qs6-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 7 -->
+    <fieldset  id="field7">
+        <legend  id="legend7"> Question #7 </legend>
+        <label> <h2> Evaluate the expression: 2/3 * (5/6 - 1/4)</h2> <br/>
+        <input type="radio" name="qs7" value="a" required>
+        <label> a) 7/18</label><br>
+
+        <input type="radio" name="qs7" value="b">
+        <label> b) 18/7</label><br>
+
+        <input type="radio" name="qs7" value="c">
+        <label> c) 8/4 </label><br>
+        
+        <input type="radio" name="qs7" value="d">
+        <label for="c">d) 2</label><br><br>
+        <p id="qs7-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 8 -->
+    <fieldset  id="field8">
+        <legend  id="legend8"> Question #8 </legend>
+        <label> <h2> Calculate the volume of a cube with side length 8 cm. </h2> <br/>
+        <input type="radio" name="qs8" value="a" required>
+        <label> a) 512 cm^3</label><br>
+
+        <input type="radio" name="qs8" value="b">
+        <label> b) 512 cm^2</label><br>
+
+        <input type="radio" name="qs8" value="c">
+        <label> c) 24 cm^3 </label><br>
+        
+        <input type="radio" name="qs8" value="d">
+        <label for="c">d) 24 cm</label><br><br>
+        <p id="qs8-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 9 -->
+    <fieldset  id="field9">
+        <legend  id="legend9"> Question #9 </legend>
+        <label> <h2> What is the sum of the greatest 5-digit number and greatest 2-digit number.</h2> <br/>
+        <input type="radio" name="qs9" value="a" required>
+        <label> a) 10,998</label><br>
+
+        <input type="radio" name="qs9" value="b">
+        <label> b) 100,098</label><br>
+
+        <input type="radio" name="qs9" value="c">
+        <label> c) 99,988 </label><br>
+        
+        <input type="radio" name="qs9" value="d">
+        <label for="c">d) 10,010</label><br><br>
+        <p id="qs9-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 10 -->
+    <fieldset  id="field10">
+        <legend  id="legend10"> Question #10 </legend>
+        <label> <h2> Find the circumference of a circle with a radius of 6 cm. (Use π = 3.14)</h2> <br/>
+        <input type="radio" name="qs10" value="a" required>
+        <label> a) 37.68 cm</label><br>
+
+        <input type="radio" name="qs10" value="b">
+        <label> b) 18.84 cm</label><br>
+
+        <input type="radio" name="qs10" value="c">
+        <label> c) 100.48 cm </label><br>
+        
+        <input type="radio" name="qs10" value="d">
+        <label for="c">d) 37.69 cm</label><br><br>
+        <p id="qs10-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    
+    <div class="container">
+    <!-- Question 11 -->
+    <fieldset  id="field11">
+        <legend  id="legend11"> Question #11 </legend>
+        <label> <h2> A train is traveling at a speed of 50 kilometers per hour. If the total distance of the journey is 400 kilometers, how long will it take for the train to complete the journey in minutes?
+        </h2> <br/>
+        <input type="radio" name="qs11" value="a" required>
+        <label> a) 7 hours</label><br>
+
+        <input type="radio" name="qs11" value="b">
+        <label> b) 480 minutes</label><br>
+
+        <input type="radio" name="qs11" value="c">
+        <label> c) 8 hours </label><br>
+        
+        <input type="radio" name="qs11" value="d">
+        <label for="c">d) 333 minutes</label><br><br>
+        <p id="qs11-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 12 -->
+    <fieldset  id="field12">
+        <legend  id="legend12"> Question #12 </legend>
+        <label> <h2> A store is having a sale with 25% off all items. If an item originally costs $25, what is the sale price?</h2> <br/>
+        <input type="radio" name="qs12" value="a" required>
+        <label> a) $18.75</label><br>
+
+        <input type="radio" name="qs12" value="b">
+        <label> b) $00.00</label><br>
+
+        <input type="radio" name="qs12" value="c">
+        <label> c) $6.25 </label><br>
+        
+        <input type="radio" name="qs12" value="d">
+        <label for="c">d) $31.25</label><br><br>
+        <p id="qs12-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 13 -->
+    <fieldset  id="field13">
+        <legend  id="legend13"> Question #13 </legend>
+        <label> <h2> A farmer has a rectangular field that is 160 meters long and 40 meters wide. The farmer wants to build a fence along the perimeter of the field, except for one side, which is already bordered by a river. The farmer plans to divide the remaining three sides of the field into equal-length sections with posts placed at equal intervals. If the farmer wants to place a post every 5 meters, how many posts will be needed? </h2> <br/>
+        <input type="radio" name="qs13" value="a" required>
+        <label> a) 80 posts</label><br>
+
+        <input type="radio" name="qs13" value="b">
+        <label> b) 1280 posts</label><br>
+
+        <input type="radio" name="qs13" value="c">
+        <label> c) 40 posts </label><br>
+        
+        <input type="radio" name="qs13" value="d">
+        <label for="c">d) None of the above</label><br><br>
+        <p id="qs13-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 14 -->
+    <fieldset  id="field14">
+        <legend  id="legend14"> Question #14 </legend>
+        <label> <h2> Sarah wants to save $100 in 10 weeks. How much money does she need to save each week to reach her goal? </h2> <br/>
+        <input type="radio" name="qs14" value="a" required>
+        <label> a) $10</label><br>
+
+        <input type="radio" name="qs14" value="b">
+        <label> b) $90</label><br>
+
+        <input type="radio" name="qs14" value="c">
+        <label> c) $12 </label><br>
+        
+        <input type="radio" name="qs14" value="d">
+        <label for="c">d) $11</label><br><br>
+        <p id="qs14-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 15 -->
+    <fieldset  id="field15">
+        <legend  id="legend15"> Question #15 </legend>
+        <label> <h2> In a school election, there are 550 students eligible to vote. Candidate A receives 40% of the votes, Candidate B receives 20% of the votes, and Candidate C receives the remaining votes. How many votes did Candidate C receive? </h2> <br/>
+        <input type="radio" name="qs15" value="a" required>
+        <label> a) 220</label><br>
+
+        <input type="radio" name="qs15" value="b">
+        <label> b) 200</label><br>
+
+        <input type="radio" name="qs15" value="c">
+        <label> c) 330 </label><br>
+        
+        <input type="radio" name="qs15" value="d">
+        <label for="c">d) 400</label><br><br>
+        <p id="qs15-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 16 -->
+    <fieldset  id="field16">
+        <legend  id="legend16"> Question #16 </legend>
+        <label> The sum of two consecutive even numbers is 32. Find the two even numbers and which one of them is greater. </label> <br/>
+        <input type="text" id="qs16" name="qs16" onfocus="if (this.value == 'Enter input here') {this.value = '';}" onblur="validateInput('qs16')"required>
+        <p id="qs16-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    
+    <div class="container">
+    <!-- Question 17 -->
+    <fieldset id="field17">
+        <legend id="legend17"> Question #17 </legend>
+        <label> A school bus can carry 48 students. If there are 360 students going on a field trip, how many buses are needed? </label> <br/>
+        <input type="text" id="qs17" name="qs17" onfocus="if (this.value == 'Enter input here') {this.value = '';}" onblur="validateInput('qs17')"required>
+        <p id="qs17-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+
+    <div class="container">
+    <!-- Question 18 -->
+    <fieldset  id="field18">
+        <legend  id="legend18"> Question #18 </legend>
+        <label> A pizza is divided into 8 equal slices. If four friends each eat 2 slices, what fraction of the pizza is left? </label> <br/>
+        <input type="text" id="qs18" name="qs18" onfocus="if (this.value == 'Enter input here') {this.value = '';}" onblur="validateInput('qs18')"required>
+        <p id="qs18-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+
+    <div class="container">
+    <!-- Question 19 -->
+    <fieldset  id="field19">
+        <legend  id="legend19"> Question #19 </legend>
+        <label> The scale on a map indicates that 1 inch represents 10 miles. If two cities are 2 inches apart on the map, what is the actual distance between the cities? </label> <br/>
+        <input type="text" id="qs19" name="qs19" onfocus="if (this.value == 'Enter input here') {this.value = '';}" onblur="validateInput('qs19')" required>
+        <p id="qs19-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+
+    <div class="container">
+    <!-- Question 20 -->
+    <fieldset  id="field20">
+        <legend  id="legend20"> Question #20 </legend>
+        <label> Find the next the next term in the sequence: 2, 6 , 18, 54,__ </label> <br/>
+        <input type="text" id="qs20" name="qs20" onfocus="if (this.value == 'Enter input here') {this.value = '';}" onblur="validateInput('qs20')"required>
+        <p id="qs20-result"> </p>
+        </label>
+    </fieldset>
+    </div>
+    </div>
+    
+    <div class="buttonContainer" style="width: 100%; text-align: center; margin-bottom: 10px;">
+    <input type="submit">
+    <button id="resetButton" onclick="resetQuiz()"> Reset Choices </button>
+    </div>
+    </form>
+
+    
+    </body>
+    <script>
+    var score = 0;
+    function checkAnswer(qsNum, qstAns, qstCorrectAns, qsCtr) {
+        if (qstAns == qstCorrectAns) {
+            score++;
+            document.getElementById(qsNum + "-result").innerHTML = "Correct!";
+            document.getElementById("score").innerHTML = score + "/20";
+            document.getElementById("legend" + qsCtr).style.backgroundColor = "lime";
+            document.getElementById("field" + qsCtr).style.borderColor = "lime";
+        } else {
+            document.getElementById(qsNum + "-result").innerHTML = "Wrong <br/> </br>The correct answer is: " + qstCorrectAns;
+            document.getElementById("legend" + qsCtr).style.backgroundColor = "red";
+            document.getElementById("field" + qsCtr).style.borderColor = "red";
+        }
+    }
+
+    function validateInput(id){
+                var x = document.getElementById(id).value;
+                if (x == ""){
+                    document.getElementById(id).style.border = "2px solid red";
+                 } else {
+                    document.getElementById(id).style.border = "2px solid lightgreen";
+                }
+            }
+    
+        function submitFormAns() {
+            score = 0;
+            checkAnswer('qs1', document.querySelector('input[name=\'qs1\']:checked').value, 'a', 1);
+            checkAnswer('qs2', document.querySelector('input[name=\'qs2\']:checked').value, 'c', 2);
+            checkAnswer('qs3', document.querySelector('input[name=\'qs3\']:checked').value, 'a', 3);
+            checkAnswer('qs4', document.querySelector('input[name=\'qs4\']:checked').value, 'a', 4);
+            checkAnswer('qs5', document.querySelector('input[name=\'qs5\']:checked').value, 'c', 5);
+            checkAnswer('qs6', document.querySelector('input[name=\'qs6\']:checked').value, 'a', 6);
+            checkAnswer('qs7', document.querySelector('input[name=\'qs7\']:checked').value, 'a', 7);
+            checkAnswer('qs8', document.querySelector('input[name=\'qs8\']:checked').value, 'a', 8);
+            checkAnswer('qs9', document.querySelector('input[name=\'qs9\']:checked').value, 'b', 9);
+            checkAnswer('qs10', document.querySelector('input[name=\'qs10\']:checked').value, 'a', 10);
+            checkAnswer('qs11', document.querySelector('input[name=\'qs11\']:checked').value, 'b', 11);
+            checkAnswer('qs12', document.querySelector('input[name=\'qs12\']:checked').value, 'a', 12);
+            checkAnswer('qs13', document.querySelector('input[name=\'qs13\']:checked').value, 'a', 13);
+            checkAnswer('qs14', document.querySelector('input[name=\'qs14\']:checked').value, 'a', 14);
+            checkAnswer('qs15', document.querySelector('input[name=\'qs15\']:checked').value, 'a', 15);
+            checkAnswer('qs16', document.getElementById("qs16").value.trim(), '17', 16);
+            checkAnswer('qs17', document.getElementById("qs17").value.trim(), '8', 17);
+            checkAnswer('qs18', document.getElementById("qs18").value.trim(), '0', 18);
+            checkAnswer('qs19', document.getElementById("qs19").value.trim(), '20', 19);
+            checkAnswer('qs20', document.getElementById("qs20").value.trim(), '162', 20);
+            return false;
+    }
+    
+    function submitForm(event) {
+        event.preventDefault();
+    }
+    
+    function resetQuiz() {
+        location.reload();
+    }
+    
+    </script>
+    
+    
+</html>
